@@ -26,6 +26,8 @@ namespace FNChanger2
             }
         }
 
+        Random random = new Random();
+
         /// <summary>バージョンに依存しないユーザーのアプリケーションデータのパス</summary>
         public static string UserAppDataPath
         {
@@ -158,6 +160,7 @@ namespace FNChanger2
                     filename = Regex.Replace(filename, txtBefore.Text, txtAfter.Text);
                 }
             }
+            filename = filename.Replace("<random>", random.Next(100000000).ToString("00000000"));
             // 何もしない
             //if (radNoCase.Checked) ;
             if (radWordCase.Checked)

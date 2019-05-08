@@ -99,8 +99,8 @@
             this.tlpAddRemove.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpAddRemove.Size = new System.Drawing.Size(421, 72);
             this.tlpAddRemove.TabIndex = 0;
-            this.tlpAddRemove.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.tlpAddRemove.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.tlpAddRemove.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.tlpAddRemove.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
             // label2
             // 
@@ -245,8 +245,8 @@
             this.tlpReplace.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpReplace.Size = new System.Drawing.Size(295, 39);
             this.tlpReplace.TabIndex = 1;
-            this.tlpReplace.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.tlpReplace.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.tlpReplace.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.tlpReplace.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
             // txtBefore
             // 
@@ -308,8 +308,8 @@
             this.tlpCase.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpCase.Size = new System.Drawing.Size(388, 98);
             this.tlpCase.TabIndex = 2;
-            this.tlpCase.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.tlpCase.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.tlpCase.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.tlpCase.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             // 
             // radNoCase
             // 
@@ -442,8 +442,8 @@
             this.cmbFile.Name = "cmbFile";
             this.cmbFile.Size = new System.Drawing.Size(233, 20);
             this.cmbFile.TabIndex = 0;
-            this.cmbFile.SelectedIndexChanged += new System.EventHandler(this.cmbFile_SelectedIndexChanged);
-            this.cmbFile.TextUpdate += new System.EventHandler(this.cmbFile_TextUpdate);
+            this.cmbFile.SelectedIndexChanged += new System.EventHandler(this.CmbFile_SelectedIndexChanged);
+            this.cmbFile.TextUpdate += new System.EventHandler(this.CmbFile_TextUpdate);
             // 
             // btnDelete
             // 
@@ -454,7 +454,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "削除";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnSave
             // 
@@ -465,7 +465,7 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnLoad
             // 
@@ -476,7 +476,7 @@
             this.btnLoad.TabIndex = 1;
             this.btnLoad.Text = "開く";
             this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
             // FormMain
             // 
@@ -491,9 +491,9 @@
             this.Controls.Add(this.tlpAddRemove);
             this.Name = "FormMain";
             this.Text = "FormMain";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             this.tlpAddRemove.ResumeLayout(false);
             this.tlpAddRemove.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRemoveLeft)).EndInit();

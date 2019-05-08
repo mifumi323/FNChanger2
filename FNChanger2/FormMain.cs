@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
@@ -26,7 +22,7 @@ namespace FNChanger2
             }
         }
 
-        Random random = new Random();
+        readonly Random random = new Random();
 
         /// <summary>バージョンに依存しないユーザーのアプリケーションデータのパス</summary>
         public static string UserAppDataPath
@@ -45,7 +41,7 @@ namespace FNChanger2
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             this.Text = Application.ProductName;
 
@@ -74,12 +70,12 @@ namespace FNChanger2
             }
         }
 
-        private void Form1_DragEnter(object sender, DragEventArgs e)
+        private void FormMain_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.All;
         }
 
-        private void Form1_DragDrop(object sender, DragEventArgs e)
+        private void FormMain_DragDrop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
@@ -186,7 +182,7 @@ namespace FNChanger2
             return match.Substring(0, 1).ToUpper() + match.Substring(1).ToLower();
         }
 
-        private void cmbFile_TextUpdate(object sender, EventArgs e)
+        private void CmbFile_TextUpdate(object sender, EventArgs e)
         {
             UpdateButtons();
         }
@@ -205,7 +201,7 @@ namespace FNChanger2
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void BtnLoad_Click(object sender, EventArgs e)
         {
             try
             {
@@ -233,7 +229,7 @@ namespace FNChanger2
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -269,7 +265,7 @@ namespace FNChanger2
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -286,7 +282,7 @@ namespace FNChanger2
             }
         }
 
-        private void cmbFile_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbFile_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateButtons();
         }

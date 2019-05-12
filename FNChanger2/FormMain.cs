@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Text;
-using System.Windows.Forms;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace FNChanger2
 {
@@ -23,6 +24,7 @@ namespace FNChanger2
         }
 
         readonly Random random = new Random();
+        private Dictionary<string, string> previewFiles = null;
 
         /// <summary>バージョンに依存しないユーザーのアプリケーションデータのパス</summary>
         public static string UserAppDataPath
@@ -80,12 +82,17 @@ namespace FNChanger2
             if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
-            StringBuilder log = new StringBuilder();
+            var log = new StringBuilder();
             int succeeded = 0, failed = 0;
             if (chkPreview.Checked)
             {
                 log.AppendLine("プレビューモード(実際のファイル名変更無し)");
                 log.AppendLine();
+                previewFiles = new Dictionary<string, string>();
+            }
+            else
+            {
+                previewFiles = null;
             }
             foreach (var file in files)
             {
@@ -100,6 +107,7 @@ namespace FNChanger2
                     else
                     {
                         log.AppendLine("変更後: " + newfile);
+                        previewFiles?.Add(file, newfile);
                     }
                     succeeded++;
                 }

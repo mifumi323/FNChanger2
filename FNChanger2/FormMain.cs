@@ -116,62 +116,25 @@ namespace FNChanger2
 
         private string Rename(string file)
         {
-            string folder = Path.GetDirectoryName(file);
-            string filename = Path.GetFileNameWithoutExtension(file);
-            string extension = Path.GetExtension(file);
-            if (chkExtension.Checked)
+            var rule = new RenameRule
             {
-                filename += extension;
-                extension = "";
-            }
-            if (chkFolder.Checked)
-            {
-                filename = Path.Combine(folder, filename);
-                folder = "";
-            }
-            if (nudRemoveLeft.Value > 0 && filename.Length >= nudRemoveLeft.Value)
-            {
-                filename = filename.Substring((int)nudRemoveLeft.Value);
-            }
-            if (!string.IsNullOrEmpty(txtAddLeft.Text))
-            {
-                filename = txtAddLeft.Text + filename;
-            }
-            if (nudRemoveRight.Value > 0 && filename.Length >= nudRemoveRight.Value)
-            {
-                filename = filename.Substring(0, filename.Length - (int)nudRemoveRight.Value);
-            }
-            if (!string.IsNullOrEmpty(txtAddRight.Text))
-            {
-                filename += txtAddRight.Text;
-            }
-            if (!string.IsNullOrEmpty(txtBefore.Text))
-            {
-                if (!chkRegex.Checked)
-                {
-                    filename = filename.Replace(txtBefore.Text, txtAfter.Text);
-                }
-                else
-                {
-                    filename = Regex.Replace(filename, txtBefore.Text, txtAfter.Text);
-                }
-            }
-            filename = filename.Replace("<random>", random.Next(100000000).ToString("00000000"));
-            // 何もしない
-            //if (radNoCase.Checked) ;
-            if (radWordCase.Checked)
-            {
-                filename = Regex.Replace(filename, @"\w+", ReplaceProperCase);
-            }
-            else if (radUpperCase.Checked)
-            {
-                filename = filename.ToUpper();
-            }
-            else if (radLowerCase.Checked)
-            {
-                filename = filename.ToLower();
-            }
-            string newfile = Path.Combine(folder, filename + extension);
+                WithExtension = chkExtension.Checked,
+                WithDirectory = chkFolder.Checked,
+                RemoveLeftLength = (int)nudRemoveLeft.Value,
+                AddLeft = txtAddLeft.Text,
+                RemoveRightLength = (int)nudRemoveRight.Value,
+                AddRight = txtAddRight.Text,
+                ReplaceFrom = txtBefore.Text,
+                ReplaceTo = txtAfter.Text,
+                ReplaceRegex = chkRegex.Checked,
+                Random = random,
+                Case =
+                    radWordCase.Checked ? RenameRule.CaseRule.Word :
+                    radUpperCase.Checked ? RenameRule.CaseRule.Upper :
+                    radLowerCase.Checked ? RenameRule.CaseRule.Lower :
+                    RenameRule.CaseRule.None,
+            };
+            var newfile = rule.Apply(file);
             if (!chkPreview.Checked && file != newfile) File.Move(file, newfile);
             return newfile;
         }

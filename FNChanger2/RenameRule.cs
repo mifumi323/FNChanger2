@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace FNChanger2
@@ -25,6 +26,8 @@ namespace FNChanger2
         public bool ReplaceRegex { get; set; }
         public Random Random { get; set; }
         public CaseRule Case { get; set; }
+
+        public int DefaultRandomDigits { get; set; } = 8;
 
         public string Apply(string filePath)
         {
@@ -68,7 +71,7 @@ namespace FNChanger2
                     filename = Regex.Replace(filename, ReplaceFrom, ReplaceTo);
                 }
             }
-            filename = filename.Replace("<random>", (Random ?? new Random()).Next(100000000).ToString("00000000"));
+            filename = ReplaceRandomTags(filename, Random ?? new Random());
             switch (Case)
             {
                 case CaseRule.None:
@@ -92,6 +95,41 @@ namespace FNChanger2
             }
             var newPath = Path.Combine(folder, filename + extension);
             return newPath;
+        }
+
+        public string ReplaceRandomTags(string filename, Random random)
+        {
+            int GetDigits(Match match)
+            {
+                var group = match.Groups["digits"];
+                return group.Success ? int.Parse(group.Value) : DefaultRandomDigits;
+            }
+
+            var regex = new Regex(@"<random(-(?<digits>[1-9][0-9]?))?>");
+            var matches = regex.Matches(filename);
+            if (matches.Count == 0)
+            {
+                return filename;
+            }
+
+            var maxDigits = 0;
+            foreach (Match match in matches)
+            {
+                var digits = GetDigits(match);
+                if (digits > maxDigits)
+                {
+                    maxDigits = digits;
+                }
+            }
+
+            var sb = new StringBuilder(maxDigits);
+            for (int i = 0; i < maxDigits; i += 9)
+            {
+                sb.Append(random.Next(1000000000).ToString("000000000"));
+            }
+            var randomString = sb.ToString();
+
+            return regex.Replace(filename, match => randomString.Substring(0, GetDigits(match)));
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FNChanger2.Tests
 {
@@ -137,6 +137,92 @@ namespace FNChanger2.Tests
             var expected = @"C:\Directory\46961975 Tofu on FIRE 46961975.txt";
             var actual = renameRule.Apply(input);
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Random0Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-0> ",
+                AddRight = " <random-0>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            Assert.ThrowsException<ArgumentException>(() => renameRule.Apply(input));
+        }
+
+        [TestMethod()]
+        public void Random1Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-1> ",
+                AddRight = " <random-1>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            var expected = @"C:\Directory\4 Tofu on FIRE 4.txt";
+            var actual = renameRule.Apply(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Random9Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-9> ",
+                AddRight = " <random-9>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            var expected = @"C:\Directory\469619753 Tofu on FIRE 469619753.txt";
+            var actual = renameRule.Apply(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Random10Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-10> ",
+                AddRight = " <random-10>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            var expected = @"C:\Directory\4696197535 Tofu on FIRE 4696197535.txt";
+            var actual = renameRule.Apply(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Random99Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-99> ",
+                AddRight = " <random-99>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            var expected = @"C:\Directory\469619753591538841541143613500227770035927098827876353628340387486239982938043986380308996255866809 Tofu on FIRE 469619753591538841541143613500227770035927098827876353628340387486239982938043986380308996255866809.txt";
+            var actual = renameRule.Apply(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void Random100Test()
+        {
+            var renameRule = new RenameRule()
+            {
+                AddLeft = "<random-100> ",
+                AddRight = " <random-100>",
+                Random = new Random(323)
+            };
+            var input = @"C:\Directory\Tofu on FIRE.txt";
+            Assert.ThrowsException<ArgumentException>(() => renameRule.Apply(input));
         }
 
         [TestMethod()]

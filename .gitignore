@@ -1,8 +1,8 @@
 .vs/
 bin/
 packages/
+publish/
 obj/
 *.user
 *.suo
-release.bat
 *.lnk

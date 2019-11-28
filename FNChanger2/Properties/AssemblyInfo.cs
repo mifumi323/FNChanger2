@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MifuminSoft")]
 [assembly: AssemblyProduct("FNChanger2")]
-[assembly: AssemblyCopyright("Copyright © Mifumi 2011-2015 Mifumi Matsuda")]
+[assembly: AssemblyCopyright("Copyright © Mifumi 2011-2019 Mifumi Matsuda")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.6.0.*")]
+[assembly: AssemblyVersion("2.7.0.*")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]

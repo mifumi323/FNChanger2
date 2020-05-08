@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -103,7 +104,7 @@ namespace FNChanger2
                 try
                 {
                     log.AppendLine(file);
-                    string newfile = this.Rename(file);
+                    string newfile = Rename(file);
                     if (newfile == file)
                     {
                         log.AppendLine("変更なし");
@@ -124,6 +125,7 @@ namespace FNChanger2
             }
             log.Append(string.Format("成功:{0} 失敗:{1}", succeeded, failed));
             txtLog.Text = log.ToString();
+            UpdateButtons();
         }
 
         private string Rename(string file)
@@ -164,9 +166,10 @@ namespace FNChanger2
 
         private void UpdateButtons()
         {
+            btnApply.Enabled = chkPreview.Checked && previewFiles != null && previewFiles.Any();
             try
             {
-                string filename = FileName;
+                var filename = FileName;
                 btnSave.Enabled = true;
                 btnLoad.Enabled = btnDelete.Enabled = File.Exists(filename);
             }
@@ -274,6 +277,41 @@ namespace FNChanger2
             var tb = cmsInsert.Tag as TextBox;
             var value = (sender as ToolStripMenuItem).Tag as string;
             tb.SelectedText = value;
+        }
+
+        private void BtnApply_Click(object sender, EventArgs e)
+        {
+            var log = new StringBuilder();
+            int succeeded = 0, failed = 0;
+            log.AppendLine("プレビュー適用");
+            log.AppendLine();
+            foreach (var previewFile in previewFiles)
+            {
+                try
+                {
+                    var file = previewFile.Key;
+                    var newfile = previewFile.Value;
+                    log.AppendLine(file);
+                    log.AppendLine("変更後: " + newfile);
+                    File.Move(file, newfile);
+                    succeeded++;
+                }
+                catch (Exception ex)
+                {
+                    log.AppendLine("エラー: " + ex.Message);
+                    failed++;
+                }
+                log.AppendLine();
+            }
+            log.Append(string.Format("成功:{0} 失敗:{1}", succeeded, failed));
+            txtLog.Text = log.ToString();
+            previewFiles = null;
+            UpdateButtons();
+        }
+
+        private void chkPreview_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateButtons();
         }
     }
 }

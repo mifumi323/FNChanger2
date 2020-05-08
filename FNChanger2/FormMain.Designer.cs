@@ -59,6 +59,7 @@
             this.chkFolder = new System.Windows.Forms.CheckBox();
             this.chkRegex = new System.Windows.Forms.CheckBox();
             this.chkPreview = new System.Windows.Forms.CheckBox();
+            this.btnApply = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.tlpFile = new System.Windows.Forms.TableLayoutPanel();
             this.cmbFile = new System.Windows.Forms.ComboBox();
@@ -149,7 +150,7 @@
             this.label4.Location = new System.Drawing.Point(379, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 12);
-            this.label4.TabIndex = 5;
+            this.label4.TabIndex = 6;
             this.label4.Text = "を追加";
             // 
             // label5
@@ -159,7 +160,7 @@
             this.label5.Location = new System.Drawing.Point(3, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 12);
-            this.label5.TabIndex = 6;
+            this.label5.TabIndex = 7;
             this.label5.Text = "最後の";
             // 
             // label6
@@ -169,7 +170,7 @@
             this.label6.Location = new System.Drawing.Point(123, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 12);
-            this.label6.TabIndex = 8;
+            this.label6.TabIndex = 9;
             this.label6.Text = "文字を削除";
             // 
             // label7
@@ -179,7 +180,7 @@
             this.label7.Location = new System.Drawing.Point(191, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 12);
-            this.label7.TabIndex = 9;
+            this.label7.TabIndex = 10;
             this.label7.Text = "最後に";
             // 
             // txtAddLeft
@@ -200,7 +201,7 @@
             this.txtAddRight.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtAddRight.Name = "txtAddRight";
             this.txtAddRight.Size = new System.Drawing.Size(123, 19);
-            this.txtAddRight.TabIndex = 10;
+            this.txtAddRight.TabIndex = 11;
             // 
             // label8
             // 
@@ -209,7 +210,7 @@
             this.label8.Location = new System.Drawing.Point(379, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 12);
-            this.label8.TabIndex = 11;
+            this.label8.TabIndex = 13;
             this.label8.Text = "を追加";
             // 
             // nudRemoveLeft
@@ -237,7 +238,7 @@
             0});
             this.nudRemoveRight.Name = "nudRemoveRight";
             this.nudRemoveRight.Size = new System.Drawing.Size(69, 19);
-            this.nudRemoveRight.TabIndex = 7;
+            this.nudRemoveRight.TabIndex = 8;
             this.nudRemoveRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnAddLeftPattern
@@ -247,7 +248,7 @@
             this.btnAddLeftPattern.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnAddLeftPattern.Name = "btnAddLeftPattern";
             this.btnAddLeftPattern.Size = new System.Drawing.Size(15, 19);
-            this.btnAddLeftPattern.TabIndex = 12;
+            this.btnAddLeftPattern.TabIndex = 5;
             this.btnAddLeftPattern.TabStop = false;
             this.btnAddLeftPattern.UseVisualStyleBackColor = true;
             this.btnAddLeftPattern.Click += new System.EventHandler(this.BtnPattern_Click);
@@ -295,7 +296,7 @@
             this.txtBefore.Location = new System.Drawing.Point(3, 3);
             this.txtBefore.Name = "txtBefore";
             this.txtBefore.Size = new System.Drawing.Size(100, 19);
-            this.txtBefore.TabIndex = 12;
+            this.txtBefore.TabIndex = 0;
             // 
             // label9
             // 
@@ -304,7 +305,7 @@
             this.label9.Location = new System.Drawing.Point(109, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 12);
-            this.label9.TabIndex = 13;
+            this.label9.TabIndex = 1;
             this.label9.Text = "を";
             // 
             // txtAfter
@@ -315,7 +316,7 @@
             this.txtAfter.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtAfter.Name = "txtAfter";
             this.txtAfter.Size = new System.Drawing.Size(103, 19);
-            this.txtAfter.TabIndex = 14;
+            this.txtAfter.TabIndex = 2;
             // 
             // label10
             // 
@@ -324,7 +325,7 @@
             this.label10.Location = new System.Drawing.Point(253, 13);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 12);
-            this.label10.TabIndex = 15;
+            this.label10.TabIndex = 4;
             this.label10.Text = "に置換";
             // 
             // btnAfterPattern
@@ -334,7 +335,7 @@
             this.btnAfterPattern.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnAfterPattern.Name = "btnAfterPattern";
             this.btnAfterPattern.Size = new System.Drawing.Size(15, 19);
-            this.btnAfterPattern.TabIndex = 12;
+            this.btnAfterPattern.TabIndex = 3;
             this.btnAfterPattern.TabStop = false;
             this.btnAfterPattern.UseVisualStyleBackColor = true;
             this.btnAfterPattern.Click += new System.EventHandler(this.BtnPattern_Click);
@@ -343,17 +344,20 @@
             // 
             this.tlpCase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpCase.ColumnCount = 2;
+            this.tlpCase.ColumnCount = 4;
             this.tlpCase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpCase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tlpCase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpCase.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tlpCase.Controls.Add(this.radNoCase, 0, 0);
-            this.tlpCase.Controls.Add(this.radWordCase, 1, 0);
+            this.tlpCase.Controls.Add(this.radWordCase, 2, 0);
             this.tlpCase.Controls.Add(this.radUpperCase, 0, 1);
-            this.tlpCase.Controls.Add(this.radLowerCase, 1, 1);
+            this.tlpCase.Controls.Add(this.radLowerCase, 2, 1);
             this.tlpCase.Controls.Add(this.chkExtension, 0, 2);
-            this.tlpCase.Controls.Add(this.chkFolder, 1, 2);
+            this.tlpCase.Controls.Add(this.chkFolder, 2, 2);
             this.tlpCase.Controls.Add(this.chkRegex, 0, 3);
-            this.tlpCase.Controls.Add(this.chkPreview, 1, 3);
+            this.tlpCase.Controls.Add(this.chkPreview, 2, 3);
+            this.tlpCase.Controls.Add(this.btnApply, 3, 3);
             this.tlpCase.Location = new System.Drawing.Point(12, 135);
             this.tlpCase.Name = "tlpCase";
             this.tlpCase.RowCount = 4;
@@ -371,10 +375,11 @@
             this.radNoCase.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radNoCase.AutoSize = true;
             this.radNoCase.Checked = true;
+            this.tlpCase.SetColumnSpan(this.radNoCase, 2);
             this.radNoCase.Location = new System.Drawing.Point(3, 4);
             this.radNoCase.Name = "radNoCase";
             this.radNoCase.Size = new System.Drawing.Size(157, 16);
-            this.radNoCase.TabIndex = 16;
+            this.radNoCase.TabIndex = 0;
             this.radNoCase.TabStop = true;
             this.radNoCase.Text = "大文字小文字を変換しない";
             this.radNoCase.UseVisualStyleBackColor = true;
@@ -383,10 +388,11 @@
             // 
             this.radWordCase.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radWordCase.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.radWordCase, 2);
             this.radWordCase.Location = new System.Drawing.Point(197, 4);
             this.radWordCase.Name = "radWordCase";
             this.radWordCase.Size = new System.Drawing.Size(135, 16);
-            this.radWordCase.TabIndex = 17;
+            this.radWordCase.TabIndex = 1;
             this.radWordCase.Text = "単語の先頭を大文字に";
             this.radWordCase.UseVisualStyleBackColor = true;
             // 
@@ -394,10 +400,11 @@
             // 
             this.radUpperCase.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radUpperCase.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.radUpperCase, 2);
             this.radUpperCase.Location = new System.Drawing.Point(3, 28);
             this.radUpperCase.Name = "radUpperCase";
             this.radUpperCase.Size = new System.Drawing.Size(89, 16);
-            this.radUpperCase.TabIndex = 18;
+            this.radUpperCase.TabIndex = 2;
             this.radUpperCase.Text = "全て大文字に";
             this.radUpperCase.UseVisualStyleBackColor = true;
             // 
@@ -405,10 +412,11 @@
             // 
             this.radLowerCase.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radLowerCase.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.radLowerCase, 2);
             this.radLowerCase.Location = new System.Drawing.Point(197, 28);
             this.radLowerCase.Name = "radLowerCase";
             this.radLowerCase.Size = new System.Drawing.Size(89, 16);
-            this.radLowerCase.TabIndex = 19;
+            this.radLowerCase.TabIndex = 3;
             this.radLowerCase.Text = "全て小文字に";
             this.radLowerCase.UseVisualStyleBackColor = true;
             // 
@@ -416,10 +424,11 @@
             // 
             this.chkExtension.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkExtension.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.chkExtension, 2);
             this.chkExtension.Location = new System.Drawing.Point(3, 52);
             this.chkExtension.Name = "chkExtension";
             this.chkExtension.Size = new System.Drawing.Size(145, 16);
-            this.chkExtension.TabIndex = 20;
+            this.chkExtension.TabIndex = 4;
             this.chkExtension.Text = "拡張子も変換対象にする";
             this.chkExtension.UseVisualStyleBackColor = true;
             // 
@@ -427,10 +436,11 @@
             // 
             this.chkFolder.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkFolder.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.chkFolder, 2);
             this.chkFolder.Location = new System.Drawing.Point(197, 52);
             this.chkFolder.Name = "chkFolder";
             this.chkFolder.Size = new System.Drawing.Size(144, 16);
-            this.chkFolder.TabIndex = 21;
+            this.chkFolder.TabIndex = 5;
             this.chkFolder.Text = "フォルダも変換対象にする";
             this.chkFolder.UseVisualStyleBackColor = true;
             // 
@@ -438,10 +448,11 @@
             // 
             this.chkRegex.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkRegex.AutoSize = true;
+            this.tlpCase.SetColumnSpan(this.chkRegex, 2);
             this.chkRegex.Location = new System.Drawing.Point(3, 77);
             this.chkRegex.Name = "chkRegex";
             this.chkRegex.Size = new System.Drawing.Size(133, 16);
-            this.chkRegex.TabIndex = 22;
+            this.chkRegex.TabIndex = 6;
             this.chkRegex.Text = "置換に正規表現を使う";
             this.chkRegex.UseVisualStyleBackColor = true;
             // 
@@ -452,9 +463,21 @@
             this.chkPreview.Location = new System.Drawing.Point(197, 77);
             this.chkPreview.Name = "chkPreview";
             this.chkPreview.Size = new System.Drawing.Size(96, 16);
-            this.chkPreview.TabIndex = 23;
+            this.chkPreview.TabIndex = 7;
             this.chkPreview.Text = "プレビューモード";
             this.chkPreview.UseVisualStyleBackColor = true;
+            this.chkPreview.CheckedChanged += new System.EventHandler(this.chkPreview_CheckedChanged);
+            // 
+            // btnApply
+            // 
+            this.btnApply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnApply.Location = new System.Drawing.Point(345, 75);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(40, 20);
+            this.btnApply.TabIndex = 8;
+            this.btnApply.Text = "適用";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
             // txtLog
             // 
@@ -620,6 +643,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiInsertRandom;
         private System.Windows.Forms.Button btnAddRightPattern;
         private System.Windows.Forms.Button btnAfterPattern;
+        private System.Windows.Forms.Button btnApply;
     }
 }
 

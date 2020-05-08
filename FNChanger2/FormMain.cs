@@ -49,14 +49,18 @@ namespace FNChanger2
 
             // 初期レイアウト
             int lineHeight = tlpAddRemove.Margin.Top + tlpAddRemove.Margin.Bottom + Math.Max(label1.Height, txtAddLeft.Height);
-            int lineWidth = this.ClientSize.Width;
+            int lineWidth = ClientSize.Width;
             tlpAddRemove.SetBounds(0, 0, lineWidth, lineHeight * 2);
             tlpReplace.SetBounds(0, tlpAddRemove.Bottom, lineWidth, lineHeight);
             tlpCase.SetBounds(0, tlpReplace.Bottom, lineWidth, lineHeight * 4);
             btnSave.Height = btnLoad.Height = btnDelete.Height = cmbFile.Height;
-            tlpFile.SetBounds(0, this.ClientSize.Height - lineHeight, lineWidth, lineHeight);
+            tlpFile.SetBounds(0, ClientSize.Height - lineHeight, lineWidth, lineHeight);
             txtLog.SetBounds(0, tlpCase.Bottom, lineWidth, tlpFile.Top - tlpCase.Bottom);
-            this.Icon = FNChanger2.Properties.Resources.FncIcon;
+            Icon = Properties.Resources.FncIcon;
+
+            btnAddLeftPattern.Tag = txtAddLeft;
+            btnAddRightPattern.Tag = txtAddRight;
+            btnAfterPattern.Tag = txtAfter;
 
             UpdateFileList();
             UpdateButtons();
@@ -256,6 +260,20 @@ namespace FNChanger2
         private void CmbFile_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateButtons();
+        }
+
+        private void BtnPattern_Click(object sender, EventArgs e)
+        {
+            var c = sender as Control;
+            cmsInsert.Tag = c.Tag;
+            cmsInsert.Show(c, 0, c.Height);
+        }
+
+        private void TsmiInsert_Click(object sender, EventArgs e)
+        {
+            var tb = cmsInsert.Tag as TextBox;
+            var value = (sender as ToolStripMenuItem).Tag as string;
+            tb.SelectedText = value;
         }
     }
 }

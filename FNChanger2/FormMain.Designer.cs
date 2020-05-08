@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpAddRemove = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,11 +42,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.nudRemoveLeft = new System.Windows.Forms.NumericUpDown();
             this.nudRemoveRight = new System.Windows.Forms.NumericUpDown();
+            this.btnAddLeftPattern = new System.Windows.Forms.Button();
+            this.btnAddRightPattern = new System.Windows.Forms.Button();
             this.tlpReplace = new System.Windows.Forms.TableLayoutPanel();
             this.txtBefore = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAfter = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnAfterPattern = new System.Windows.Forms.Button();
             this.tlpCase = new System.Windows.Forms.TableLayoutPanel();
             this.radNoCase = new System.Windows.Forms.RadioButton();
             this.radWordCase = new System.Windows.Forms.RadioButton();
@@ -61,37 +65,43 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.cmsInsert = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiInsertRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpAddRemove.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRemoveLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRemoveRight)).BeginInit();
             this.tlpReplace.SuspendLayout();
             this.tlpCase.SuspendLayout();
             this.tlpFile.SuspendLayout();
+            this.cmsInsert.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpAddRemove
             // 
             this.tlpAddRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpAddRemove.ColumnCount = 6;
+            this.tlpAddRemove.ColumnCount = 7;
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
+            this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tlpAddRemove.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpAddRemove.Controls.Add(this.label2, 2, 0);
             this.tlpAddRemove.Controls.Add(this.label1, 0, 0);
             this.tlpAddRemove.Controls.Add(this.label3, 3, 0);
-            this.tlpAddRemove.Controls.Add(this.label4, 5, 0);
+            this.tlpAddRemove.Controls.Add(this.label4, 6, 0);
             this.tlpAddRemove.Controls.Add(this.label5, 0, 1);
             this.tlpAddRemove.Controls.Add(this.label6, 2, 1);
             this.tlpAddRemove.Controls.Add(this.label7, 3, 1);
             this.tlpAddRemove.Controls.Add(this.txtAddLeft, 4, 0);
             this.tlpAddRemove.Controls.Add(this.txtAddRight, 4, 1);
-            this.tlpAddRemove.Controls.Add(this.label8, 5, 1);
+            this.tlpAddRemove.Controls.Add(this.label8, 6, 1);
             this.tlpAddRemove.Controls.Add(this.nudRemoveLeft, 1, 0);
             this.tlpAddRemove.Controls.Add(this.nudRemoveRight, 1, 1);
+            this.tlpAddRemove.Controls.Add(this.btnAddLeftPattern, 5, 0);
+            this.tlpAddRemove.Controls.Add(this.btnAddRightPattern, 5, 1);
             this.tlpAddRemove.Location = new System.Drawing.Point(12, 12);
             this.tlpAddRemove.Name = "tlpAddRemove";
             this.tlpAddRemove.RowCount = 2;
@@ -106,7 +116,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(130, 6);
+            this.label2.Location = new System.Drawing.Point(123, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 12);
             this.label2.TabIndex = 2;
@@ -126,7 +136,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 6);
+            this.label3.Location = new System.Drawing.Point(191, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 12);
             this.label3.TabIndex = 3;
@@ -156,7 +166,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 42);
+            this.label6.Location = new System.Drawing.Point(123, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 12);
             this.label6.TabIndex = 8;
@@ -166,7 +176,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(198, 42);
+            this.label7.Location = new System.Drawing.Point(191, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 12);
             this.label7.TabIndex = 9;
@@ -175,17 +185,21 @@
             // txtAddLeft
             // 
             this.txtAddLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddLeft.Location = new System.Drawing.Point(242, 3);
+            this.txtAddLeft.HideSelection = false;
+            this.txtAddLeft.Location = new System.Drawing.Point(235, 3);
+            this.txtAddLeft.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtAddLeft.Name = "txtAddLeft";
-            this.txtAddLeft.Size = new System.Drawing.Size(131, 19);
+            this.txtAddLeft.Size = new System.Drawing.Size(123, 19);
             this.txtAddLeft.TabIndex = 4;
             // 
             // txtAddRight
             // 
             this.txtAddRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddRight.Location = new System.Drawing.Point(242, 28);
+            this.txtAddRight.HideSelection = false;
+            this.txtAddRight.Location = new System.Drawing.Point(235, 28);
+            this.txtAddRight.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtAddRight.Name = "txtAddRight";
-            this.txtAddRight.Size = new System.Drawing.Size(131, 19);
+            this.txtAddRight.Size = new System.Drawing.Size(123, 19);
             this.txtAddRight.TabIndex = 10;
             // 
             // label8
@@ -208,7 +222,7 @@
             0,
             0});
             this.nudRemoveLeft.Name = "nudRemoveLeft";
-            this.nudRemoveLeft.Size = new System.Drawing.Size(76, 19);
+            this.nudRemoveLeft.Size = new System.Drawing.Size(69, 19);
             this.nudRemoveLeft.TabIndex = 1;
             this.nudRemoveLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -222,23 +236,49 @@
             0,
             0});
             this.nudRemoveRight.Name = "nudRemoveRight";
-            this.nudRemoveRight.Size = new System.Drawing.Size(76, 19);
+            this.nudRemoveRight.Size = new System.Drawing.Size(69, 19);
             this.nudRemoveRight.TabIndex = 7;
             this.nudRemoveRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnAddLeftPattern
+            // 
+            this.btnAddLeftPattern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddLeftPattern.Location = new System.Drawing.Point(358, 3);
+            this.btnAddLeftPattern.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnAddLeftPattern.Name = "btnAddLeftPattern";
+            this.btnAddLeftPattern.Size = new System.Drawing.Size(15, 19);
+            this.btnAddLeftPattern.TabIndex = 12;
+            this.btnAddLeftPattern.TabStop = false;
+            this.btnAddLeftPattern.UseVisualStyleBackColor = true;
+            this.btnAddLeftPattern.Click += new System.EventHandler(this.BtnPattern_Click);
+            // 
+            // btnAddRightPattern
+            // 
+            this.btnAddRightPattern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddRightPattern.Location = new System.Drawing.Point(358, 28);
+            this.btnAddRightPattern.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnAddRightPattern.Name = "btnAddRightPattern";
+            this.btnAddRightPattern.Size = new System.Drawing.Size(15, 19);
+            this.btnAddRightPattern.TabIndex = 12;
+            this.btnAddRightPattern.TabStop = false;
+            this.btnAddRightPattern.UseVisualStyleBackColor = true;
+            this.btnAddRightPattern.Click += new System.EventHandler(this.BtnPattern_Click);
             // 
             // tlpReplace
             // 
             this.tlpReplace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpReplace.ColumnCount = 4;
+            this.tlpReplace.ColumnCount = 5;
             this.tlpReplace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpReplace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpReplace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpReplace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tlpReplace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpReplace.Controls.Add(this.txtBefore, 0, 0);
             this.tlpReplace.Controls.Add(this.label9, 1, 0);
             this.tlpReplace.Controls.Add(this.txtAfter, 2, 0);
-            this.tlpReplace.Controls.Add(this.label10, 3, 0);
+            this.tlpReplace.Controls.Add(this.label10, 4, 0);
+            this.tlpReplace.Controls.Add(this.btnAfterPattern, 3, 0);
             this.tlpReplace.Location = new System.Drawing.Point(12, 90);
             this.tlpReplace.Name = "tlpReplace";
             this.tlpReplace.RowCount = 1;
@@ -251,16 +291,17 @@
             // txtBefore
             // 
             this.txtBefore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBefore.HideSelection = false;
             this.txtBefore.Location = new System.Drawing.Point(3, 3);
             this.txtBefore.Name = "txtBefore";
-            this.txtBefore.Size = new System.Drawing.Size(109, 19);
+            this.txtBefore.Size = new System.Drawing.Size(100, 19);
             this.txtBefore.TabIndex = 12;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(118, 13);
+            this.label9.Location = new System.Drawing.Point(109, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 12);
             this.label9.TabIndex = 13;
@@ -269,9 +310,11 @@
             // txtAfter
             // 
             this.txtAfter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAfter.Location = new System.Drawing.Point(138, 3);
+            this.txtAfter.HideSelection = false;
+            this.txtAfter.Location = new System.Drawing.Point(129, 3);
+            this.txtAfter.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.txtAfter.Name = "txtAfter";
-            this.txtAfter.Size = new System.Drawing.Size(109, 19);
+            this.txtAfter.Size = new System.Drawing.Size(103, 19);
             this.txtAfter.TabIndex = 14;
             // 
             // label10
@@ -283,6 +326,18 @@
             this.label10.Size = new System.Drawing.Size(38, 12);
             this.label10.TabIndex = 15;
             this.label10.Text = "に置換";
+            // 
+            // btnAfterPattern
+            // 
+            this.btnAfterPattern.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAfterPattern.Location = new System.Drawing.Point(232, 3);
+            this.btnAfterPattern.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnAfterPattern.Name = "btnAfterPattern";
+            this.btnAfterPattern.Size = new System.Drawing.Size(15, 19);
+            this.btnAfterPattern.TabIndex = 12;
+            this.btnAfterPattern.TabStop = false;
+            this.btnAfterPattern.UseVisualStyleBackColor = true;
+            this.btnAfterPattern.Click += new System.EventHandler(this.BtnPattern_Click);
             // 
             // tlpCase
             // 
@@ -478,6 +533,21 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
+            // cmsInsert
+            // 
+            this.cmsInsert.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiInsertRandom});
+            this.cmsInsert.Name = "cmsPatternSelect";
+            this.cmsInsert.Size = new System.Drawing.Size(132, 26);
+            // 
+            // tsmiInsertRandom
+            // 
+            this.tsmiInsertRandom.Name = "tsmiInsertRandom";
+            this.tsmiInsertRandom.Size = new System.Drawing.Size(131, 22);
+            this.tsmiInsertRandom.Tag = "<random>";
+            this.tsmiInsertRandom.Text = "<random>";
+            this.tsmiInsertRandom.Click += new System.EventHandler(this.TsmiInsert_Click);
+            // 
             // FormMain
             // 
             this.AllowDrop = true;
@@ -504,6 +574,7 @@
             this.tlpCase.PerformLayout();
             this.tlpFile.ResumeLayout(false);
             this.tlpFile.PerformLayout();
+            this.cmsInsert.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +615,11 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAddLeftPattern;
+        private System.Windows.Forms.ContextMenuStrip cmsInsert;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertRandom;
+        private System.Windows.Forms.Button btnAddRightPattern;
+        private System.Windows.Forms.Button btnAfterPattern;
     }
 }
 

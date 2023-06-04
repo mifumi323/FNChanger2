@@ -26,6 +26,12 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Setup Nuget
+      uses: Nuget/setup-nuget@v1.2.0
+
+    - name: Restore nuget packages
+      run: nuget restore ${{ env.Project_Directory }}/${{ env.Project_Path }}
+
     - name: Build
       run: msbuild $env:Solution_Name /p:Configuration=Release -p:OutDir="out/"
 

@@ -109,7 +109,7 @@ namespace FNChanger2
             {
                 previewFiles = null;
             }
-            foreach (var file in files)
+            foreach (var file in rule.ExpandPaths(files))
             {
                 try
                 {

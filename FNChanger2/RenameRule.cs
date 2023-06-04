@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -103,6 +104,42 @@ namespace FNChanger2
             }
             var newPath = Path.Combine(folder, filename + extension);
             return newPath;
+        }
+
+        public IEnumerable<string> ExpandPaths(IEnumerable<string> paths)
+        {
+            foreach (var path in paths)
+            {
+                if (System.IO.Directory.Exists(path))
+                {
+                    switch (Directory)
+                    {
+                        case DirectoryRule.None:
+                            break;
+                        case DirectoryRule.ApplyToItself:
+                            yield return path;
+                            break;
+                        case DirectoryRule.ApplyToFiles:
+                            foreach (var childPath in System.IO.Directory.EnumerateFiles(path, "*", SearchOption.TopDirectoryOnly))
+                            {
+                                yield return childPath;
+                            }
+                            break;
+                        case DirectoryRule.ApplyToFilesInSubDirectory:
+                            foreach (var childPath in System.IO.Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories))
+                            {
+                                yield return childPath;
+                            }
+                            break;
+                        default:
+                            throw new Exception($"無効なルールです：{Directory}");
+                    }
+                }
+                else
+                {
+                    yield return path;
+                }
+            }
         }
 
         public string ReplaceRandomTags(string filename, Random random)

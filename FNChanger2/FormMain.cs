@@ -128,7 +128,7 @@ namespace FNChanger2
                         }
                         else
                         {
-                            File.Move(file, newfile);
+                            ApplyRename(file, newfile);
                         }
                     }
                     succeeded++;
@@ -143,6 +143,18 @@ namespace FNChanger2
             log.Append(string.Format("成功:{0} 失敗:{1}", succeeded, failed));
             txtLog.Text = log.ToString();
             UpdateButtons();
+        }
+
+        private static void ApplyRename(string file, string newfile)
+        {
+            if (Directory.Exists(file))
+            {
+                Directory.Move(file, newfile);
+            }
+            else
+            {
+                File.Move(file, newfile);
+            }
         }
 
         private RenameRule MakeRenameRule()
@@ -310,7 +322,7 @@ namespace FNChanger2
                     var newfile = previewFile.Value;
                     log.AppendLine(file);
                     log.AppendLine("変更後: " + newfile);
-                    File.Move(file, newfile);
+                    ApplyRename(file, newfile);
                     succeeded++;
                 }
                 catch (Exception ex)

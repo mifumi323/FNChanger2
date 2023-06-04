@@ -96,6 +96,7 @@ namespace FNChanger2
             if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
+            var rule = MakeRenameRule();
             var log = new StringBuilder();
             int succeeded = 0, failed = 0;
             if (chkPreview.Checked)
@@ -113,7 +114,7 @@ namespace FNChanger2
                 try
                 {
                     log.AppendLine(file);
-                    string newfile = Rename(file);
+                    var newfile = rule.Apply(file);
                     if (newfile == file)
                     {
                         log.AppendLine("変更なし");
@@ -121,7 +122,14 @@ namespace FNChanger2
                     else
                     {
                         log.AppendLine("変更後: " + newfile);
-                        previewFiles?.Add(file, newfile);
+                        if (chkPreview.Checked)
+                        {
+                            previewFiles?.Add(file, newfile);
+                        }
+                        else
+                        {
+                            File.Move(file, newfile);
+                        }
                     }
                     succeeded++;
                 }
@@ -158,14 +166,6 @@ namespace FNChanger2
                     RenameRule.CaseRule.None,
                 Directory = (RenameRule.DirectoryRule)cmbFolderDrop.SelectedValue,
             };
-        }
-
-        private string Rename(string file)
-        {
-            var rule = MakeRenameRule();
-            var newfile = rule.Apply(file);
-            if (!chkPreview.Checked && file != newfile) File.Move(file, newfile);
-            return newfile;
         }
 
         public string ReplaceProperCase(Match m)

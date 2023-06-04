@@ -427,9 +427,9 @@
             this.tlpCase.SetColumnSpan(this.chkExtension, 2);
             this.chkExtension.Location = new System.Drawing.Point(3, 52);
             this.chkExtension.Name = "chkExtension";
-            this.chkExtension.Size = new System.Drawing.Size(145, 16);
+            this.chkExtension.Size = new System.Drawing.Size(117, 16);
             this.chkExtension.TabIndex = 4;
-            this.chkExtension.Text = "拡張子も変換対象にする";
+            this.chkExtension.Text = "拡張子部分も変換";
             this.chkExtension.UseVisualStyleBackColor = true;
             // 
             // chkFolder
@@ -439,9 +439,9 @@
             this.tlpCase.SetColumnSpan(this.chkFolder, 2);
             this.chkFolder.Location = new System.Drawing.Point(197, 52);
             this.chkFolder.Name = "chkFolder";
-            this.chkFolder.Size = new System.Drawing.Size(144, 16);
+            this.chkFolder.Size = new System.Drawing.Size(145, 16);
             this.chkFolder.TabIndex = 5;
-            this.chkFolder.Text = "フォルダも変換対象にする";
+            this.chkFolder.Text = "パスのフォルダ部分も変換";
             this.chkFolder.UseVisualStyleBackColor = true;
             // 
             // chkRegex

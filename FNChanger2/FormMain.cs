@@ -156,6 +156,7 @@ namespace FNChanger2
                     radUpperCase.Checked ? RenameRule.CaseRule.Upper :
                     radLowerCase.Checked ? RenameRule.CaseRule.Lower :
                     RenameRule.CaseRule.None,
+                Directory = (RenameRule.DirectoryRule)cmbFolderDrop.SelectedValue,
             };
         }
 
@@ -213,6 +214,7 @@ namespace FNChanger2
                     chkFolder.Checked = bool.Parse(sr.ReadLine());
                     chkRegex.Checked = bool.Parse(sr.ReadLine());
                     chkPreview.Checked = bool.Parse(sr.ReadLine());
+                    cmbFolderDrop.SelectedIndex = int.Parse(sr.ReadLine() ?? "0");
                 }
             }
             catch (Exception)
@@ -247,6 +249,7 @@ namespace FNChanger2
                     sw.WriteLine(chkFolder.Checked);
                     sw.WriteLine(chkRegex.Checked);
                     sw.WriteLine(chkPreview.Checked);
+                    sw.WriteLine(cmbFolderDrop.SelectedIndex);
                 }
                 UpdateFileList();
                 UpdateButtons();

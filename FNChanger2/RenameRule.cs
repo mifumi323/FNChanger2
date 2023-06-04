@@ -33,6 +33,7 @@ namespace FNChanger2
         public bool ReplaceRegex { get; set; }
         public Random Random { get; set; }
         public CaseRule Case { get; set; }
+        public DirectoryRule Directory { get; set; }
 
         public int DefaultRandomDigits { get; set; } = 8;
 

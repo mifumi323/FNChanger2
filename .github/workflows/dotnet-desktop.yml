@@ -16,6 +16,8 @@ jobs:
       Solution_Name: FNChanger2.sln
       Project_Directory: FNChanger2
       Project_Path: FNChanger2.csproj
+      Test_Directory: FNChanger2Tests
+      Test_Path: FNChanger2Tests.csproj
 
     steps:
     - name: Checkout
@@ -30,7 +32,7 @@ jobs:
       uses: Nuget/setup-nuget@v1.2.0
 
     - name: Restore nuget packages
-      run: nuget restore ${{ env.Project_Directory }}/${{ env.Project_Path }}
+      run: nuget restore ${{ env.Test_Directory }}/${{ env.Test_Path }}
 
     - name: Build
       run: msbuild $env:Solution_Name /p:Configuration=Release -p:OutDir="out/"

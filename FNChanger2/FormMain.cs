@@ -137,9 +137,9 @@ namespace FNChanger2
             UpdateButtons();
         }
 
-        private string Rename(string file)
+        private RenameRule MakeRenameRule()
         {
-            var rule = new RenameRule
+            return new RenameRule
             {
                 WithExtension = chkExtension.Checked,
                 WithDirectory = chkFolder.Checked,
@@ -157,6 +157,11 @@ namespace FNChanger2
                     radLowerCase.Checked ? RenameRule.CaseRule.Lower :
                     RenameRule.CaseRule.None,
             };
+        }
+
+        private string Rename(string file)
+        {
+            var rule = MakeRenameRule();
             var newfile = rule.Apply(file);
             if (!chkPreview.Checked && file != newfile) File.Move(file, newfile);
             return newfile;

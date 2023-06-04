@@ -53,7 +53,7 @@ namespace FNChanger2
             int lineWidth = ClientSize.Width;
             tlpAddRemove.SetBounds(0, 0, lineWidth, lineHeight * 2);
             tlpReplace.SetBounds(0, tlpAddRemove.Bottom, lineWidth, lineHeight);
-            tlpCase.SetBounds(0, tlpReplace.Bottom, lineWidth, lineHeight * 4);
+            tlpCase.SetBounds(0, tlpReplace.Bottom, lineWidth, lineHeight * 5);
             btnSave.Height = btnLoad.Height = btnDelete.Height = cmbFile.Height;
             tlpFile.SetBounds(0, ClientSize.Height - lineHeight, lineWidth, lineHeight);
             txtLog.SetBounds(0, tlpCase.Bottom, lineWidth, tlpFile.Top - tlpCase.Bottom);
@@ -62,6 +62,15 @@ namespace FNChanger2
             btnAddLeftPattern.Tag = txtAddLeft;
             btnAddRightPattern.Tag = txtAddRight;
             btnAfterPattern.Tag = txtAfter;
+
+            cmbFolderDrop.DataSource = new[]
+            {
+                new { Value = RenameRule.DirectoryRule.None, Name = "フォルダをドロップ時：何もしない", },
+                new { Value = RenameRule.DirectoryRule.ApplyToItself, Name = "フォルダをドロップ時：フォルダ名を変更", },
+                new { Value = RenameRule.DirectoryRule.ApplyToFiles, Name = "フォルダをドロップ時：フォルダ内のファイル名を変更", },
+                new { Value = RenameRule.DirectoryRule.ApplyToFilesInSubDirectory, Name = "フォルダをドロップ時：フォルダとサブフォルダ内のファイル名を変更", },
+            };
+            cmbFolderDrop.SelectedIndex = 0;
 
             UpdateFileList();
             UpdateButtons();

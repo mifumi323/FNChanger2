@@ -14,6 +14,13 @@ namespace FNChanger2
             Upper,
             Lower,
         }
+        public enum DirectoryRule
+        {
+            None,
+            ApplyToItself,
+            ApplyToFiles,
+            ApplyToFilesInSubDirectory,
+        }
 
         public bool WithExtension { get; set; }
         public bool WithDirectory { get; set; }

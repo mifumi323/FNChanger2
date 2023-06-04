@@ -1,10 +1,10 @@
 【 タイトル 】FNチェンジャー2
-【バージョン】2.8.0
+【バージョン】開発中バージョン
 【  種  別  】フリーソフト
-【 動作環境 】Windows + .NET Framework 4.5.2
+【 動作環境 】Windows + .NET Framework 4.8
               (Windows 10～)
 【 制 作 者 】美文
-【 開発言語 】C#(Visual Studio 2019)
+【 開発言語 】C#(Visual Studio 2022)
 
 ●概要
 一定の規則でファイル名を一括変更します。
@@ -62,6 +62,9 @@
 ランダムの桁数指定バージョンです。
 
 ●履歴
+開発中バージョン
+  オプション名変更
+　.NET Framework 4.8を使うように変更
 2.8.0(2020/05/15)
 　テキストボックスの右にタグ挿入ボタン追加
 　プレビューモードの横に適用ボタン追加
@@ -103,5 +106,5 @@
 　公開
 
 ●連絡先
-Mail:mifumi323@tgws.fromc.jp
+Mail:mifumi323@gmail.com
 URL :https://tgws.plus/

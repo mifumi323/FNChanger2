@@ -124,6 +124,10 @@
     <None Include="CRDFLE13.ICO" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\license.txt">
+      <Link>license.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="FNChanger2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

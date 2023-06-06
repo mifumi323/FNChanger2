@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.github\workflows\dotnet-desktop.yml = .github\workflows\dotnet-desktop.yml
+		license.txt = license.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNChanger2Tests", "FNChanger2Tests\FNChanger2Tests.csproj", "{32AA7FBB-76ED-4903-94D3-89EF364D9BB0}"

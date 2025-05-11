@@ -61,7 +61,25 @@
 ・<random-1>～<random-99>
 ランダムの桁数指定バージョンです。
 
+・<now:日時形式文字列>
+現在時刻に置き換わります。
+<now:yyyyMMddHHmmss>と書くと、現在時刻が「20231005123456」のような形式で置き換わります。
+日時形式文字列は.NETの「DateTime.ToString」メソッドの書式指定文字列を参考にしてください。
+https://learn.microsoft.com/ja-jp/dotnet/standard/base-types/standard-date-and-time-format-strings
+https://learn.microsoft.com/ja-jp/dotnet/standard/base-types/custom-date-and-time-format-strings
+
+・<ctime:日時形式文字列>
+ファイルの作成日時に置き換わります。
+
+・<mtime:日時形式文字列>
+ファイルの更新日時に置き換わります。
+
+・<atime:日時形式文字列>
+ファイルのアクセス日時に置き換わります。
+
 ●履歴
+次期バージョン
+　時刻系タグ追加(<now:～>、<ctime:～>、<mtime:～>、<atime:～>))
 2.9.0
 　フォルダをドロップ時のオプション追加  
 　オプション名変更

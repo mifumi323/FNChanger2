@@ -82,7 +82,7 @@ namespace FNChanger2
                 }
             }
             filename = ReplaceRandomTags(filename, Random ?? new Random());
-            filename = ReplaceDateTags(filename, Now ?? DateTime.Now);
+            filename = ReplaceDateTags(filename, filePath, Now ?? DateTime.Now);
             switch (Case)
             {
                 case CaseRule.None:
@@ -179,7 +179,7 @@ namespace FNChanger2
             return regex.Replace(filename, match => randomString.Substring(0, GetDigits(match)));
         }
 
-        private string ReplaceDateTags(string filename, DateTime dateTime)
+        private string ReplaceDateTags(string filename, string originalFilePath, DateTime dateTime)
         {
             var regex = new Regex(@"<(now|ctime|mtime|atime):([-a-zA-Z0-9,./\\!""#$%&'\(\)=^~|@`\[\]{};+:*]+)>");
             var matches = regex.Matches(filename);
@@ -199,15 +199,15 @@ namespace FNChanger2
                         replacement = dateTime.ToString(format);
                         break;
                     case "ctime":
-                        var creationTime = File.GetCreationTime(filename);
+                        var creationTime = File.GetCreationTime(originalFilePath);
                         replacement = creationTime.ToString(format);
                         break;
                     case "mtime":
-                        var lastWriteTime = File.GetLastWriteTime(filename);
+                        var lastWriteTime = File.GetLastWriteTime(originalFilePath);
                         replacement = lastWriteTime.ToString(format);
                         break;
                     case "atime":
-                        var lastAccessTime = File.GetLastAccessTime(filename);
+                        var lastAccessTime = File.GetLastAccessTime(originalFilePath);
                         replacement = lastAccessTime.ToString(format);
                         break;
                     default:

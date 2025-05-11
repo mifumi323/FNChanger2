@@ -60,6 +60,7 @@
             this.chkRegex = new System.Windows.Forms.CheckBox();
             this.chkPreview = new System.Windows.Forms.CheckBox();
             this.btnApply = new System.Windows.Forms.Button();
+            this.cmbFolderDrop = new System.Windows.Forms.ComboBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.tlpFile = new System.Windows.Forms.TableLayoutPanel();
             this.cmbFile = new System.Windows.Forms.ComboBox();
@@ -68,7 +69,10 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.cmsInsert = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiInsertRandom = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbFolderDrop = new System.Windows.Forms.ComboBox();
+            this.tsmiInsertNow = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInsertCTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInsertMTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInsertATimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpAddRemove.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRemoveLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudRemoveRight)).BeginInit();
@@ -482,6 +486,19 @@
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.BtnApply_Click);
             // 
+            // cmbFolderDrop
+            // 
+            this.tlpCase.SetColumnSpan(this.cmbFolderDrop, 4);
+            this.cmbFolderDrop.DisplayMember = "Name";
+            this.cmbFolderDrop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbFolderDrop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFolderDrop.FormattingEnabled = true;
+            this.cmbFolderDrop.Location = new System.Drawing.Point(3, 66);
+            this.cmbFolderDrop.Name = "cmbFolderDrop";
+            this.cmbFolderDrop.Size = new System.Drawing.Size(382, 20);
+            this.cmbFolderDrop.TabIndex = 9;
+            this.cmbFolderDrop.ValueMember = "Value";
+            // 
             // txtLog
             // 
             this.txtLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -562,30 +579,53 @@
             // cmsInsert
             // 
             this.cmsInsert.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiInsertRandom});
+            this.tsmiInsertRandom,
+            this.tsmiInsertNow,
+            this.tsmiInsertCTimeToolStripMenuItem,
+            this.tsmiInsertMTimeToolStripMenuItem,
+            this.tsmiInsertATimeToolStripMenuItem});
             this.cmsInsert.Name = "cmsPatternSelect";
-            this.cmsInsert.Size = new System.Drawing.Size(132, 26);
+            this.cmsInsert.Size = new System.Drawing.Size(337, 136);
             // 
             // tsmiInsertRandom
             // 
             this.tsmiInsertRandom.Name = "tsmiInsertRandom";
-            this.tsmiInsertRandom.Size = new System.Drawing.Size(131, 22);
+            this.tsmiInsertRandom.Size = new System.Drawing.Size(336, 22);
             this.tsmiInsertRandom.Tag = "<random>";
-            this.tsmiInsertRandom.Text = "<random>";
+            this.tsmiInsertRandom.Text = "<random> - ランダム(8桁)";
             this.tsmiInsertRandom.Click += new System.EventHandler(this.TsmiInsert_Click);
             // 
-            // cmbFolderDrop
+            // tsmiInsertNow
             // 
-            this.tlpCase.SetColumnSpan(this.cmbFolderDrop, 4);
-            this.cmbFolderDrop.DisplayMember = "Name";
-            this.cmbFolderDrop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbFolderDrop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFolderDrop.FormattingEnabled = true;
-            this.cmbFolderDrop.Location = new System.Drawing.Point(3, 66);
-            this.cmbFolderDrop.Name = "cmbFolderDrop";
-            this.cmbFolderDrop.Size = new System.Drawing.Size(382, 20);
-            this.cmbFolderDrop.TabIndex = 9;
-            this.cmbFolderDrop.ValueMember = "Value";
+            this.tsmiInsertNow.Name = "tsmiInsertNow";
+            this.tsmiInsertNow.Size = new System.Drawing.Size(336, 22);
+            this.tsmiInsertNow.Tag = "<now:yyyyMMddHHmmss>";
+            this.tsmiInsertNow.Text = "<now:yyyyMMddHHmmss> - 現在時刻";
+            this.tsmiInsertNow.Click += new System.EventHandler(this.TsmiInsert_Click);
+            // 
+            // tsmiInsertCTimeToolStripMenuItem
+            // 
+            this.tsmiInsertCTimeToolStripMenuItem.Name = "tsmiInsertCTimeToolStripMenuItem";
+            this.tsmiInsertCTimeToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
+            this.tsmiInsertCTimeToolStripMenuItem.Tag = "<ctime:yyyyMMddHHmmss>";
+            this.tsmiInsertCTimeToolStripMenuItem.Text = "<ctime:yyyyMMddHHmmss> - ファイル作成日時";
+            this.tsmiInsertCTimeToolStripMenuItem.Click += new System.EventHandler(this.TsmiInsert_Click);
+            // 
+            // tsmiInsertMTimeToolStripMenuItem
+            // 
+            this.tsmiInsertMTimeToolStripMenuItem.Name = "tsmiInsertMTimeToolStripMenuItem";
+            this.tsmiInsertMTimeToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
+            this.tsmiInsertMTimeToolStripMenuItem.Tag = "<mtime:yyyyMMddHHmmss>";
+            this.tsmiInsertMTimeToolStripMenuItem.Text = "<mtime:yyyyMMddHHmmss> - ファイル変更日時";
+            this.tsmiInsertMTimeToolStripMenuItem.Click += new System.EventHandler(this.TsmiInsert_Click);
+            // 
+            // tsmiInsertATimeToolStripMenuItem
+            // 
+            this.tsmiInsertATimeToolStripMenuItem.Name = "tsmiInsertATimeToolStripMenuItem";
+            this.tsmiInsertATimeToolStripMenuItem.Size = new System.Drawing.Size(336, 22);
+            this.tsmiInsertATimeToolStripMenuItem.Tag = "<atime:yyyyMMddHHmmss>";
+            this.tsmiInsertATimeToolStripMenuItem.Text = "<atime:yyyyMMddHHmmss> - ファイルアクセス日時";
+            this.tsmiInsertATimeToolStripMenuItem.Click += new System.EventHandler(this.TsmiInsert_Click);
             // 
             // FormMain
             // 
@@ -661,6 +701,10 @@
         private System.Windows.Forms.Button btnAfterPattern;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ComboBox cmbFolderDrop;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertNow;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertCTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertMTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertATimeToolStripMenuItem;
     }
 }
 

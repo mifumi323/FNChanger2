@@ -96,7 +96,7 @@ namespace FNChanger2
             if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
 
             string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
-            var rule = MakeRenameRule();
+            var rule = MakeRenameRule(DateTime.Now);
             var log = new StringBuilder();
             int succeeded = 0, failed = 0;
             if (chkPreview.Checked)
@@ -157,7 +157,7 @@ namespace FNChanger2
             }
         }
 
-        private RenameRule MakeRenameRule()
+        private RenameRule MakeRenameRule(DateTime now)
         {
             return new RenameRule
             {
@@ -177,6 +177,7 @@ namespace FNChanger2
                     radLowerCase.Checked ? RenameRule.CaseRule.Lower :
                     RenameRule.CaseRule.None,
                 Directory = (RenameRule.DirectoryRule)cmbFolderDrop.SelectedValue,
+                Now = now,
             };
         }
 

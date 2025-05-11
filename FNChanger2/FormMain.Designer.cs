@@ -592,7 +592,7 @@
             this.tsmiInsertRandom.Name = "tsmiInsertRandom";
             this.tsmiInsertRandom.Size = new System.Drawing.Size(336, 22);
             this.tsmiInsertRandom.Tag = "<random>";
-            this.tsmiInsertRandom.Text = "<random>";
+            this.tsmiInsertRandom.Text = "<random> - ランダム(8桁)";
             this.tsmiInsertRandom.Click += new System.EventHandler(this.TsmiInsert_Click);
             // 
             // tsmiInsertNow

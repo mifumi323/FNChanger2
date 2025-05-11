@@ -35,6 +35,7 @@ namespace FNChanger2
         public Random Random { get; set; }
         public CaseRule Case { get; set; }
         public DirectoryRule Directory { get; set; }
+        public DateTime? Now { get; set; } = null;
 
         public int DefaultRandomDigits { get; set; } = 8;
 
@@ -81,6 +82,7 @@ namespace FNChanger2
                 }
             }
             filename = ReplaceRandomTags(filename, Random ?? new Random());
+            filename = ReplaceDateTags(filename, Now ?? DateTime.Now);
             switch (Case)
             {
                 case CaseRule.None:
@@ -175,6 +177,46 @@ namespace FNChanger2
             var randomString = sb.ToString();
 
             return regex.Replace(filename, match => randomString.Substring(0, GetDigits(match)));
+        }
+
+        private string ReplaceDateTags(string filename, DateTime dateTime)
+        {
+            var regex = new Regex(@"<(now|ctime|mtime|atime):([-a-zA-Z0-9,./\\!""#$%&'\(\)=^~|@`\[\]{};+:*]+)>");
+            var matches = regex.Matches(filename);
+            if (matches.Count == 0)
+            {
+                return filename;
+            }
+
+            foreach (Match match in matches)
+            {
+                var tag = match.Groups[1].Value;
+                var format = match.Groups[2].Value;
+                string replacement;
+                switch (tag)
+                {
+                    case "now":
+                        replacement = dateTime.ToString(format);
+                        break;
+                    case "ctime":
+                        var creationTime = File.GetCreationTime(filename);
+                        replacement = creationTime.ToString(format);
+                        break;
+                    case "mtime":
+                        var lastWriteTime = File.GetLastWriteTime(filename);
+                        replacement = lastWriteTime.ToString(format);
+                        break;
+                    case "atime":
+                        var lastAccessTime = File.GetLastAccessTime(filename);
+                        replacement = lastAccessTime.ToString(format);
+                        break;
+                    default:
+                        throw new InvalidOperationException($"無効なタグです：{tag}");
+                }
+                filename = filename.Replace(match.Value, replacement);
+            }
+
+            return filename;
         }
     }
 }

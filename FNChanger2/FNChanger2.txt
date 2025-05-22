@@ -1,5 +1,5 @@
 【 タイトル 】FNチェンジャー2
-【バージョン】2.9.0
+【バージョン】2.10.0
 【  種  別  】フリーソフトウェア(Apache License 2.0)
 【 動作環境 】Windows + .NET Framework 4.8
               (Windows 10～)
@@ -78,7 +78,7 @@ https://learn.microsoft.com/ja-jp/dotnet/standard/base-types/custom-date-and-tim
 ファイルのアクセス日時に置き換わります。
 
 ●履歴
-次期バージョン
+2.10.0
 　時刻系タグ追加(<now:～>、<ctime:～>、<mtime:～>、<atime:～>))
 2.9.0
 　フォルダをドロップ時のオプション追加  
